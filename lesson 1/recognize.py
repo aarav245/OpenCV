@@ -1,0 +1,11 @@
+import cv2
+image = cv2.imread("rgb.png",1)
+blue, green, red = cv2.split(image)
+cv2.imshow("image",image)
+cv2.waitKey(0)
+cv2.imshow("blue",blue)
+cv2.waitKey(0)
+cv2.imshow("green",green)
+cv2.waitKey(0)
+cv2.imshow("red",red)
+cv2.waitKey(0)
