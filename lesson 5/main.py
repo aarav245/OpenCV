@@ -53,9 +53,9 @@ cv2.destroyAllWindows()
 image6 = cv2.imread(r"C:\Users\Aarav\OneDrive\Desktop\openCV\lesson 5\image.jpg")
 font = cv2.FONT_HERSHEY_PLAIN
 fontpos = (839,732)
-fontsize = 1
+fontsize = 7
 fontcolor = (0,0,255)
-fontthickness = 4
-fontscreen = cv2.putText(image6,"Hello",fontpos,fontsize,fontcolor,fontthickness,cv2.LINE_AA)
+fontthickness = 7
+fontscreen = cv2.putText(image6,"Hello",fontpos,font,fontsize,fontcolor,fontthickness,cv2.LINE_AA)
 cv2.imshow("screen6",fontscreen)
 cv2.waitKey(0)
