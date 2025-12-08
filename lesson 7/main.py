@@ -12,7 +12,7 @@ def cartoon(framer):
 webcam = cv2.VideoCapture(0)
 filtertype = "original"
 print("Welcome to the filter gallery!")
-print("0. Original\n1. Grayscale\n2. Sepia\n3. Inverted\n4. Cartoon\nq. Quit")
+print("0. Original\n1. Grayscale\n2. Sepia\n3. Inverted\n4. Cartoon\n5. Surprise\nq. Quit")
 while True:
     readf, frame = webcam.read()
     if not readf:
@@ -28,6 +28,10 @@ while True:
         frame = cv2.bitwise_not(frame)
     elif filtertype == "Cartoon":
         frame = cartoon(frame)
+    elif filtertype == "Surprise":
+        surprise = np.array([[0.565,0.421,0.131],[0.343,0.324,0.065],[0.356,0.561,0.135]])
+        sframe = cv2.transform(frame, surprise)
+        frame = np.clip(sframe,0,255).astype(np.uint8)
         
     cv2.imshow("Camera",frame)
     keyevent = cv2.waitKey(1)
@@ -41,6 +45,8 @@ while True:
         filtertype = "Inverted"
     elif keyevent == ord("4"):
         filtertype = "Cartoon"
+    elif keyevent == ord("5"):
+        filtertype = "Surprise"
     elif keyevent == ord("q"):
         break
         
