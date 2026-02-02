@@ -11,7 +11,7 @@ cam = cv2.VideoCapture(0)
 def callback(event,x,y,flags,param):
     global r,g,b,xpos,ypos,click
     if event == cv2.EVENT_LBUTTONDOWN:
-        click == True
+        click = True
         xpos = x
         ypos = y
         b,g,r = frame[y,x]
@@ -33,8 +33,8 @@ while True:
         cv2.rectangle(frame,(20,20),(600,55),(b,g,r),-1)
         text = f"r: {r},g: {g},b: {b}"
         tcolor = (255,255,255) if r+g+b < 600 else (0,0,0)
-        cv2.putText(frame,text,(30,50),cv2.FONT_HERSHEY_PLAIN,0.9,tcolor,cv2.LINE_AA)
-    cv2.imshow("Screen",frame)
+        cv2.putText(frame,text,(30,50),cv2.FONT_HERSHEY_PLAIN,1,tcolor,1)
+    cv2.imshow("Image",frame)
     key = cv2.waitKey(10)
     if key == 27:
         break
